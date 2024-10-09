@@ -1,0 +1,757 @@
+exclude = [
+    "*/test",
+    "*/tests",
+    "__pycache__",
+    "docs",
+]
+source_roots = [
+    ".",
+]
+exact = true
+use_regex_matching = false
+root_module = "ignore"
+
+[[modules]]
+path = "funnel-udf"
+depends_on = []
+
+[[modules]]
+path = "hogvm"
+depends_on = [
+    { path = "posthog.hogql" },
+]
+
+[[modules]]
+path = "posthog"
+depends_on = [
+    { path = "posthog.celery" },
+]
+
+[[modules]]
+path = "posthog.admin"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.models" },
+]
+
+[[modules]]
+path = "posthog.api"
+depends_on = [
+    { path = "hogvm", deprecated = true },
+    { path = "posthog.async_migrations" },
+    { path = "posthog.auth" },
+    { path = "posthog.batch_exports" },
+    { path = "posthog.cache_utils" },
+    { path = "posthog.caching" },
+    { path = "posthog.cdp" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.database_healthcheck" },
+    { path = "posthog.decorators" },
+    { path = "posthog.demo" },
+    { path = "posthog.email" },
+    { path = "posthog.errors" },
+    { path = "posthog.event_usage" },
+    { path = "posthog.exceptions" },
+    { path = "posthog.filters" },
+    { path = "posthog.geoip" },
+    { path = "posthog.git" },
+    { path = "posthog.heatmaps" },
+    { path = "posthog.hogql" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.jwt" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.logging" },
+    { path = "posthog.management" },
+    { path = "posthog.metrics" },
+    { path = "posthog.middleware" },
+    { path = "posthog.models" },
+    { path = "posthog.permissions" },
+    { path = "posthog.plugins" },
+    { path = "posthog.queries" },
+    { path = "posthog.rate_limit" },
+    { path = "posthog.redis" },
+    { path = "posthog.renderers" },
+    { path = "posthog.schema" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.storage" },
+    { path = "posthog.tasks" },
+    { path = "posthog.temporal" },
+    { path = "posthog.user_permissions" },
+    { path = "posthog.utils" },
+    { path = "posthog.utils_cors" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.apps"
+depends_on = [
+    { path = "posthog.async_migrations" },
+    { path = "posthog.git" },
+    { path = "posthog.tasks" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.asgi"
+depends_on = []
+
+[[modules]]
+path = "posthog.async_migrations"
+depends_on = [
+    { path = "posthog.celery" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.email" },
+    { path = "posthog.models" },
+    { path = "posthog.redis" },
+    { path = "posthog.tasks" },
+    { path = "posthog.utils" },
+    { path = "posthog.version_requirement" },
+]
+
+[[modules]]
+path = "posthog.auth"
+depends_on = [
+    { path = "posthog.clickhouse" },
+    { path = "posthog.jwt" },
+    { path = "posthog.models" },
+]
+
+[[modules]]
+path = "posthog.batch_exports"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.client" },
+    { path = "posthog.constants" },
+    { path = "posthog.hogql" },
+    { path = "posthog.models" },
+    { path = "posthog.temporal" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.cache_utils"
+depends_on = []
+
+[[modules]]
+path = "posthog.caching"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.decorators" },
+    { path = "posthog.errors" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.logging" },
+    { path = "posthog.models" },
+    { path = "posthog.queries" },
+    { path = "posthog.redis" },
+    { path = "posthog.schema" },
+    { path = "posthog.tasks" },
+    { path = "posthog.types" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.cdp"
+depends_on = [
+    { path = "hogvm" },
+    { path = "posthog.hogql" },
+    { path = "posthog.models" },
+    { path = "posthog.test" },
+]
+
+[[modules]]
+path = "posthog.celery"
+depends_on = [
+    { path = "posthog.clickhouse" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.pagerduty" },
+    { path = "posthog.tasks" },
+]
+
+[[modules]]
+path = "posthog.clickhouse"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.batch_exports" },
+    { path = "posthog.cache_utils" },
+    { path = "posthog.celery" },
+    { path = "posthog.client" },
+    { path = "posthog.errors" },
+    { path = "posthog.heatmaps" },
+    { path = "posthog.hogql" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.models" },
+    { path = "posthog.redis" },
+    { path = "posthog.renderers" },
+    { path = "posthog.schema" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.tasks" },
+    { path = "posthog.test" },
+    { path = "posthog.utils" },
+    { path = "posthog.version_requirement" },
+]
+
+[[modules]]
+path = "posthog.client"
+depends_on = [
+    { path = "posthog.clickhouse" },
+]
+
+[[modules]]
+path = "posthog.cloud_utils"
+depends_on = []
+
+[[modules]]
+path = "posthog.conftest"
+depends_on = [
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.heatmaps" },
+    { path = "posthog.models" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.test" },
+]
+
+[[modules]]
+path = "posthog.constants"
+depends_on = []
+
+[[modules]]
+path = "posthog.database_healthcheck"
+depends_on = []
+
+[[modules]]
+path = "posthog.date_util"
+depends_on = []
+
+[[modules]]
+path = "posthog.dbrouter"
+depends_on = []
+
+[[modules]]
+path = "posthog.decorators"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.caching" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.models" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.demo"
+depends_on = [
+    { path = "posthog.client" },
+    { path = "posthog.constants" },
+    { path = "posthog.models" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.email"
+depends_on = [
+    { path = "posthog.models" },
+    { path = "posthog.tasks" },
+]
+
+[[modules]]
+path = "posthog.errors"
+depends_on = [
+    { path = "posthog.exceptions" },
+]
+
+[[modules]]
+path = "posthog.event_usage"
+depends_on = [
+    { path = "posthog.models" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.exceptions"
+depends_on = [
+    { path = "posthog.cloud_utils" },
+]
+
+[[modules]]
+path = "posthog.filters"
+depends_on = []
+
+[[modules]]
+path = "posthog.geoip"
+depends_on = []
+
+[[modules]]
+path = "posthog.git"
+depends_on = []
+
+[[modules]]
+path = "posthog.gzip_middleware"
+depends_on = []
+
+[[modules]]
+path = "posthog.health"
+depends_on = [
+    { path = "posthog.celery" },
+    { path = "posthog.client" },
+    { path = "posthog.database_healthcheck" },
+    { path = "posthog.kafka_client" },
+]
+
+[[modules]]
+path = "posthog.heatmaps"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.auth" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.hogql" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.rate_limit" },
+    { path = "posthog.schema" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.helpers"
+utility = true
+depends_on = [
+    { path = "posthog.constants" },
+    { path = "posthog.models" },
+]
+
+[[modules]]
+path = "posthog.hogql"
+depends_on = [
+    { path = "hogvm" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.errors" },
+    { path = "posthog.event_usage" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.models" },
+    { path = "posthog.queries" },
+    { path = "posthog.schema" },
+    { path = "posthog.udf_versioner" },
+    { path = "posthog.utils" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.hogql_queries"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.cache_utils" },
+    { path = "posthog.caching" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.constants" },
+    { path = "posthog.hogql" },
+    { path = "posthog.metrics" },
+    { path = "posthog.models" },
+    { path = "posthog.queries" },
+    { path = "posthog.redis" },
+    { path = "posthog.schema" },
+    { path = "posthog.schema_helpers" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.types" },
+    { path = "posthog.utils" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.idl"
+depends_on = []
+
+[[modules]]
+path = "posthog.jwt"
+depends_on = []
+
+[[modules]]
+path = "posthog.kafka_client"
+depends_on = [
+    { path = "posthog.client" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.logging"
+depends_on = []
+
+[[modules]]
+path = "posthog.management"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.async_migrations" },
+    { path = "posthog.batch_exports" },
+    { path = "posthog.cdp" },
+    { path = "posthog.celery" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.demo" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.models" },
+    { path = "posthog.plugins" },
+    { path = "posthog.queries" },
+    { path = "posthog.schema" },
+    { path = "posthog.tasks" },
+    { path = "posthog.temporal" },
+    { path = "posthog.test" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.metrics"
+depends_on = []
+
+[[modules]]
+path = "posthog.middleware"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.auth" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.exceptions" },
+    { path = "posthog.geoip" },
+    { path = "posthog.metrics" },
+    { path = "posthog.models" },
+    { path = "posthog.rate_limit" },
+    { path = "posthog.user_permissions" },
+    { path = "posthog.utils_cors" },
+]
+
+[[modules]]
+path = "posthog.migrations"
+visibility = []
+depends_on = [
+    { path = "posthog.client" },
+    { path = "posthog.constants" },
+    { path = "posthog.models" },
+    { path = "posthog.plugins" },
+    { path = "posthog.schema" },
+    { path = "posthog.utils" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.models"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.batch_exports" },
+    { path = "posthog.cache_utils" },
+    { path = "posthog.cdp" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.database_healthcheck" },
+    { path = "posthog.email" },
+    { path = "posthog.event_usage" },
+    { path = "posthog.hogql" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.jwt" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.logging" },
+    { path = "posthog.metrics" },
+    { path = "posthog.plugins" },
+    { path = "posthog.queries" },
+    { path = "posthog.redis" },
+    { path = "posthog.schema" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.storage" },
+    { path = "posthog.tasks" },
+    { path = "posthog.temporal" },
+    { path = "posthog.test" },
+    { path = "posthog.utils" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.pagerduty"
+depends_on = [
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.permissions"
+depends_on = [
+    { path = "posthog.auth" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.exceptions" },
+    { path = "posthog.models" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.ph_client"
+depends_on = [
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.plugins"
+depends_on = [
+    { path = "posthog.models" },
+    { path = "posthog.redis" },
+]
+
+[[modules]]
+path = "posthog.queries"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.cache_utils" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.constants" },
+    { path = "posthog.errors" },
+    { path = "posthog.hogql" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.models" },
+    { path = "posthog.schema" },
+    { path = "posthog.session_recordings" },
+    { path = "posthog.types" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.rate_limit"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.auth" },
+    { path = "posthog.metrics" },
+    { path = "posthog.models" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.redis"
+depends_on = []
+
+[[modules]]
+path = "posthog.renderers"
+depends_on = []
+
+[[modules]]
+path = "posthog.schema"
+depends_on = []
+
+[[modules]]
+path = "posthog.schema_helpers"
+depends_on = [
+    { path = "posthog.schema" },
+    { path = "posthog.types" },
+]
+
+[[modules]]
+path = "posthog.session_recordings"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.auth" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.event_usage" },
+    { path = "posthog.hogql" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.metrics" },
+    { path = "posthog.models" },
+    { path = "posthog.queries" },
+    { path = "posthog.rate_limit" },
+    { path = "posthog.redis" },
+    { path = "posthog.schema" },
+    { path = "posthog.storage" },
+    { path = "posthog.tasks" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.settings"
+utility = true
+depends_on = [
+    { path = "posthog.git" },
+    { path = "posthog.utils" },
+    { path = "posthog.utils_cors" },
+    { path = "posthog.version_requirement" },
+]
+
+[[modules]]
+path = "posthog.storage"
+depends_on = []
+
+[[modules]]
+path = "posthog.tasks"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.async_migrations" },
+    { path = "posthog.batch_exports" },
+    { path = "posthog.caching" },
+    { path = "posthog.cdp" },
+    { path = "posthog.celery" },
+    { path = "posthog.clickhouse" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.demo" },
+    { path = "posthog.email" },
+    { path = "posthog.errors" },
+    { path = "posthog.event_usage" },
+    { path = "posthog.exceptions" },
+    { path = "posthog.hogql" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.jwt" },
+    { path = "posthog.logging" },
+    { path = "posthog.metrics" },
+    { path = "posthog.models" },
+    { path = "posthog.pagerduty" },
+    { path = "posthog.ph_client" },
+    { path = "posthog.plugins" },
+    { path = "posthog.redis" },
+    { path = "posthog.schema" },
+    { path = "posthog.user_permissions" },
+    { path = "posthog.utils" },
+    { path = "posthog.version_requirement" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.templates"
+depends_on = []
+
+[[modules]]
+path = "posthog.templatetags"
+depends_on = [
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.temporal"
+depends_on = [
+    { path = "posthog.batch_exports" },
+    { path = "posthog.hogql" },
+    { path = "posthog.kafka_client" },
+    { path = "posthog.models" },
+    { path = "posthog.tasks" },
+    { path = "posthog.warehouse" },
+]
+
+[[modules]]
+path = "posthog.test"
+depends_on = []
+
+[[modules]]
+path = "posthog.types"
+depends_on = [
+    { path = "posthog.models" },
+    { path = "posthog.schema" },
+]
+
+[[modules]]
+path = "posthog.udf_versioner"
+depends_on = []
+
+[[modules]]
+path = "posthog.urls"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.client" },
+    { path = "posthog.constants" },
+    { path = "posthog.demo" },
+    { path = "posthog.models" },
+    { path = "posthog.utils" },
+    { path = "posthog.views" },
+    { path = "posthog.year_in_posthog" },
+]
+
+[[modules]]
+path = "posthog.user_permissions"
+depends_on = [
+    { path = "posthog.constants" },
+    { path = "posthog.models" },
+]
+
+[[modules]]
+path = "posthog.user_scripts"
+depends_on = []
+
+[[modules]]
+path = "posthog.utils"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.exceptions" },
+    { path = "posthog.git" },
+    { path = "posthog.metrics" },
+    { path = "posthog.models" },
+    { path = "posthog.redis" },
+    { path = "posthog.storage" },
+    { path = "posthog.user_permissions" },
+    { path = "posthog.views" },
+]
+
+[[modules]]
+path = "posthog.utils_cors"
+depends_on = []
+
+[[modules]]
+path = "posthog.version_requirement"
+depends_on = [
+    { path = "posthog.clickhouse" },
+    { path = "posthog.redis" },
+]
+
+[[modules]]
+path = "posthog.views"
+depends_on = [
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.email" },
+    { path = "posthog.health" },
+    { path = "posthog.models" },
+    { path = "posthog.redis" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.warehouse"
+depends_on = [
+    { path = "posthog.api" },
+    { path = "posthog.batch_exports" },
+    { path = "posthog.client" },
+    { path = "posthog.cloud_utils" },
+    { path = "posthog.constants" },
+    { path = "posthog.errors" },
+    { path = "posthog.hogql" },
+    { path = "posthog.hogql_queries" },
+    { path = "posthog.models" },
+    { path = "posthog.schema" },
+    { path = "posthog.tasks" },
+    { path = "posthog.temporal" },
+    { path = "posthog.utils" },
+]
+
+[[modules]]
+path = "posthog.wsgi"
+depends_on = []
+visibility = []
+
+[[modules]]
+path = "posthog.year_in_posthog"
+depends_on = [
+    { path = "posthog.cache_utils" },
+]
